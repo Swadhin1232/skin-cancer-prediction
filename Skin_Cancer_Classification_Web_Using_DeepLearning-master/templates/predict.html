@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermAI - Skin Analysis</title>
+    <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/styles/predict.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-ribbon"></i>
+                <span>SkynAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/predict" class="active">Analysis</a>
+                <button id="darkModeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="prediction-container">
+        <div class="container">
+            <section class="prediction-form">
+                <h1>Skin Analysis</h1>
+                <form id="predictionForm">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required min="0" max="120">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sex">Sex</label>
+                        <select id="sex" name="sex" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="localization">Lesion Location</label>
+                        <select id="localization" name="localization" required>
+                            <option value="">Select location</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Upload Image</label>
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop or Click to Upload</p>
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Analyze Image</span>
+                        <span class="loading-spinner"></span>
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Analysis Results</h2>
+            <div class="result-container">
+                <div class="diagnosis-section">
+                    <h3>Diagnosis</h3>
+                    <div class="diagnosis-type"></div>
+                    <div class="probability-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="analysis-section">
+                    <h3>Detailed Analysis</h3>
+                    <div class="analysis-content"></div>
+                </div>
+                <div class="recommendations-section">
+                    <h3>Recommendations</h3>
+                    <ul class="recommendations-list"></ul>
+                </div>
+                <div class="disclaimer">
+                    This analysis is for informational purposes only. Please consult a healthcare professional for proper diagnosis.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/theme.js"></script>
+    <script src="static/js/prediction.js"></script>
+</body>
+</html>

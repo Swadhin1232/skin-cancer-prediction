@@ -1,0 +1,26 @@
+# Virtual environments
+venv/
+tfenv/
+env/
+
+# Jupyter files
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Datasets (do NOT upload)
+*.csv
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+
+# ML models
+*.h5
+*.keras
+*.pt
+*.pkl
+
+# OS files
+Thumbs.db
+.DS_Store
